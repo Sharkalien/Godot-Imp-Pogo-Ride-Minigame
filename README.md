@@ -15,5 +15,5 @@ The code in this repository is licensed under the MIT license, but the music and
 # Credits
 * Original art by Andrew Hussie
 * Original music written by Mark Hadley and arranged by Michael Guy Bowman with guitar by Joseph Aylsworth
-* Original code by Aria "Gankra" Beingessner
+* Original ActionScript code by Aria "Gankra" Beingessner
 * Original Flash game [here](https://www.homestuck.com/flash/hs2/00476/00476.swf)
