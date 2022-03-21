@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Harlequin (Rock Version).mp3-bdcdf2d42ab934437fb6f6b920e8e84b.mp3str"
+
+[deps]
+
+source_file="res://Harlequin (Rock Version).mp3"
+dest_files=[ "res://.import/Harlequin (Rock Version).mp3-bdcdf2d42ab934437fb6f6b920e8e84b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
