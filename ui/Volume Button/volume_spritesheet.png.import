@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/volume_spritesheet.png-05099a26dbe42213d9927b3e4c39e796.stex"
+path="res://.import/volume_spritesheet.png-8bed36e37798a36514dc606c33396614.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/volume_spritesheet.png"
-dest_files=[ "res://.import/volume_spritesheet.png-05099a26dbe42213d9927b3e4c39e796.stex" ]
+source_file="res://ui/Volume Button/volume_spritesheet.png"
+dest_files=[ "res://.import/volume_spritesheet.png-8bed36e37798a36514dc606c33396614.stex" ]
 
 [params]
 

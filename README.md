@@ -6,7 +6,7 @@ Currently a WIP. Play the game [here](https://miro.gg/pogo)!
 # To-do:
 * [ ] Get textbox working
 * [ ] Replay button
-* [ ] Volume button
+* [X] Volume button
 * [ ] Add an online scoreboard/leaderboard
 
 # License

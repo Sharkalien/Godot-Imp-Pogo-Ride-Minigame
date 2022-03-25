@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://images/background.png" type="Texture" id=1]
 [ext_resource path="res://ImpPiano.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://images/reference2.png" type="Texture" id=13]
 [ext_resource path="res://images/arrowpad.png" type="Texture" id=14]
 [ext_resource path="res://images/controls.png" type="Texture" id=15]
+[ext_resource path="res://ui/Volume Button/VolumeButton.tscn" type="PackedScene" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -78,7 +79,7 @@ position = Vector2( 153, 311 )
 
 [node name="ImpCake" parent="." instance=ExtResource( 4 )]
 position = Vector2( 241, 229 )
-frame = 3
+frame = 1
 
 [node name="BackyardSwing" type="Sprite" parent="."]
 position = Vector2( 530, 699 )
@@ -191,6 +192,12 @@ texture_pressed = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Volume" parent="HUD" instance=ExtResource( 16 )]
+margin_left = 5.0
+margin_top = 4.0
+margin_right = 30.0
+margin_bottom = 29.0
 
 [connection signal="pressed" from="GiddyUp" to="." method="_on_GiddyUp_pressed"]
 [connection signal="pressed" from="HUD/Controls" to="." method="_on_Controls_pressed"]

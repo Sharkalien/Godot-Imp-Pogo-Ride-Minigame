@@ -9,6 +9,7 @@ onready var ride := get_node("Ride")
 onready var music := get_node("Harlequin ROCK")
 onready var timeLeft := $TimeLeft
 onready var scorer := $Score
+onready var sound : AudioStreamPlayer = $"Harlequin ROCK"
 
 var comb = load("res://Combo.tscn")
 var dialogbox = load("res://ui/Dialog Box/Dialog_Player.tscn").instance()
@@ -29,6 +30,7 @@ var time
 
 func _process(_delta):
 	Autoload.combos = combos
+	toggleSound()
 	timeLeft.text = "Time " + str(int($Timer.time_left))
 	if int($Timer.time_left) > 0:
 		if Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
@@ -100,3 +102,14 @@ func _on_Controls_pressed():
 		print("TRUE!")
 		dialogbox.visible = true
 	dialogbox.get_node("CenterContainer/Body_NinePatchRect/AnimationPlayer").play("Open")
+
+func toggleSound():
+	match Autoload.volumeClicks:
+		0:
+			sound.volume_db = linear2db(1)
+		1:
+			sound.volume_db = linear2db(0.6)
+		2:
+			sound.volume_db = linear2db(0.2)
+		3:
+			sound.volume_db = linear2db(0)
