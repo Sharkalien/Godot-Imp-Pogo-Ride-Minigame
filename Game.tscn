@@ -189,9 +189,6 @@ shortcut_in_tooltip = false
 action_mode = 0
 texture_normal = ExtResource( 15 )
 texture_pressed = ExtResource( 15 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Volume" parent="HUD" instance=ExtResource( 16 )]
 margin_left = 5.0

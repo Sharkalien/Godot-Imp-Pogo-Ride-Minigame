@@ -95,10 +95,10 @@ func _on_GiddyUp_pressed():
 
 func _on_Controls_pressed():
 	var hud = get_node("HUD")
-	if not hud.has_node("Dialog_Player.tscn"):
+	if not hud.has_node("DialogBox"):
 		print("FALSE!")
 		hud.add_child(dialogbox)
-	elif hud.has_node("Dialog_Player.tscn") and not dialogbox.visible:
+	elif hud.has_node("DialogBox") and not dialogbox.visible:
 		print("TRUE!")
 		dialogbox.visible = true
 	dialogbox.get_node("CenterContainer/Body_NinePatchRect/AnimationPlayer").play("Open")
