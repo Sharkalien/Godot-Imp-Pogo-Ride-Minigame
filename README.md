@@ -1,5 +1,5 @@
 # Godot Imp Pogo Ride Minigame
-The pogo ride Flash game from Homestuck recreated in Godot (v3.4.1)
+The pogo ride Flash game from Homestuck recreated in Godot (v3.4.4)
 
 Currently a WIP. Play the game [here](https://miro.gg/pogo)!
 
