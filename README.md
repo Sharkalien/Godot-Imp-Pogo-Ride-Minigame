@@ -4,7 +4,7 @@ The pogo ride Flash game from Homestuck recreated in Godot (v3.4.1)
 Currently a WIP. Play the game [here](https://miro.gg/pogo)!
 
 # To-do:
-* [ ] Get textbox working
+* [X] Get textbox working
 * [ ] Replay button
 * [X] Volume button
 * [ ] Add an online scoreboard/leaderboard
