@@ -82,11 +82,10 @@ margin_bottom = -41.0
 grow_horizontal = 2
 
 [node name="Body_NinePatchRect" type="NinePatchRect" parent="CenterContainer"]
-margin_left = 290.0
-margin_top = 89.0
-margin_right = 350.0
-margin_bottom = 149.0
-rect_min_size = Vector2( 60, 60 )
+margin_top = 24.0
+margin_right = 640.0
+margin_bottom = 215.0
+rect_min_size = Vector2( 640, 191 )
 texture = ExtResource( 1 )
 patch_margin_left = 30
 patch_margin_top = 30
@@ -105,8 +104,8 @@ margin_right = -42.0
 margin_bottom = -24.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/Body_NinePatchRect/MarginContainer"]
-visible = false
-margin_bottom = 12.0
+margin_right = 556.0
+margin_bottom = 143.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
