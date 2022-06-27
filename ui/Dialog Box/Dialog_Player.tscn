@@ -76,13 +76,10 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -320.0
-margin_top = -252.0
+margin_top = -280.0
 margin_right = 320.0
-margin_bottom = -13.0
+margin_bottom = -41.0
 grow_horizontal = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Body_NinePatchRect" type="NinePatchRect" parent="CenterContainer"]
 margin_left = 290.0

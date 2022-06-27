@@ -98,6 +98,7 @@ func _on_Controls_pressed():
 	if not hud.has_node("DialogBox"):
 		print("FALSE!")
 		hud.add_child(dialogbox)
+		$HUD/Controls/ClickHere.visible = false
 	elif hud.has_node("DialogBox") and not dialogbox.visible:
 		print("TRUE!")
 		dialogbox.visible = true
