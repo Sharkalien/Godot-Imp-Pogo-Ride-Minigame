@@ -43,10 +43,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.142857 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.116, 0.142857 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ false, false, true ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("../../Skip:visible")
@@ -55,10 +55,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.142857 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.116, 0.142857 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ false, false, true ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("../../NameLabel:visible")
@@ -67,10 +67,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.142857 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.116, 0.142857 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ false, false, true ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("../../PlayerName:visible")
@@ -79,10 +79,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.142857 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.116, 0.142857 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ false, false, true ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -250,6 +250,7 @@ scroll_active = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/Body_NinePatchRect"]
 autoplay = "Open"
 reset_on_save = false
+playback_process_mode = 0
 anims/Open = SubResource( 2 )
 anims/RESET = SubResource( 3 )
 

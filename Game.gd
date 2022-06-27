@@ -13,6 +13,7 @@ onready var sound : AudioStreamPlayer = $"Harlequin ROCK"
 
 var comb = load("res://Combo.tscn")
 var dialogbox = load("res://ui/Dialog Box/Dialog_Player.tscn").instance()
+var submitbox = load("res://ui/Submit_Player.tscn").instance()
 
 var player : String = "Player"
 var rot = 0
@@ -26,6 +27,7 @@ var score = 0
 var dispScore = 0
 var started = false
 var time
+var highScore : int = 0
 
 
 func _process(_delta):
@@ -48,6 +50,7 @@ func _process(_delta):
 			pogoScale += 0.1
 	elif timeLeft.text != "End!":
 		timeLeft.text = "End!"
+#		final()
 	
 	yVel = yVel + pogoScale * 0.9
 	pogoScale -= yVel
@@ -92,15 +95,21 @@ func _on_GiddyUp_pressed():
 	$GiddyUp.visible = false
 	$Timer.start()
 
+func final():
+	if highScore < score:
+		highScore = score
+	var hud = get_node("HUD")
+	if not hud.has_node("SubmitBox"):
+		hud.add_child(submitbox)
+	dialogbox.get_node("CenterContainer/Body_NinePatchRect/AnimationPlayer").play("Open")
+
 
 func _on_Controls_pressed():
 	var hud = get_node("HUD")
 	if not hud.has_node("DialogBox"):
-		print("FALSE!")
 		hud.add_child(dialogbox)
 		$HUD/Controls/ClickHere.visible = false
 	elif hud.has_node("DialogBox") and not dialogbox.visible:
-		print("TRUE!")
 		dialogbox.visible = true
 	dialogbox.get_node("CenterContainer/Body_NinePatchRect/AnimationPlayer").play("Open")
 
