@@ -34,7 +34,7 @@ jobs:
           mkdir -v -p ~/.local/share/godot/templates
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
       - name: Create staging directory
-        run: mkdir -v -p build/web
+        run: mkdir -v -p build
 
       - name: Build
         run: godot -v --export "HTML5" build/index.html project/project.godot
