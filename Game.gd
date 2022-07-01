@@ -101,7 +101,9 @@ func final():
 	var hud = get_node("HUD")
 	if not hud.has_node("SubmitBox"):
 		hud.add_child(submitbox)
-	dialogbox.get_node("CenterContainer/Body_NinePatchRect/AnimationPlayer").play("Open")
+	elif hud.has_node("SubmitBox") and not submitbox.visible:
+		submitbox.visible = true
+	submitbox.get_node("CenterContainer/Body_NinePatchRect/AnimationPlayer").play("Open")
 
 
 func _on_Controls_pressed():

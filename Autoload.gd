@@ -3,6 +3,7 @@ extends Node
 var color
 var combos 
 var volumeClicks : int
+var player : String = "Player"
 
 #func _process(_delta):
 #	print(str(combos) + " autoload")
