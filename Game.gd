@@ -50,7 +50,7 @@ func _process(_delta):
 			pogoScale += 0.1
 	elif timeLeft.text != "End!":
 		timeLeft.text = "End!"
-#		final()
+	
 	
 	yVel = yVel + pogoScale * 0.9
 	pogoScale -= yVel
@@ -108,7 +108,7 @@ func _on_Controls_pressed():
 	var hud = get_node("HUD")
 	if not hud.has_node("DialogBox"):
 		hud.add_child(dialogbox)
-		$HUD/Controls/ClickHere.visible = false
+		$HUD/Controls/ClickHere.queue_free()
 	elif hud.has_node("DialogBox") and not dialogbox.visible:
 		dialogbox.visible = true
 	dialogbox.get_node("CenterContainer/Body_NinePatchRect/AnimationPlayer").play("Open")

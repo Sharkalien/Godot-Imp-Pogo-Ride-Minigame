@@ -116,6 +116,7 @@ position = Vector2( 153, 311 )
 
 [node name="ImpCake" parent="." instance=ExtResource( 4 )]
 position = Vector2( 241, 229 )
+frame = 4
 
 [node name="BackyardSwing" type="Sprite" parent="."]
 position = Vector2( 530, 699 )
@@ -229,6 +230,7 @@ texture_pressed = ExtResource( 15 )
 [node name="ClickHere" type="AnimatedSprite" parent="HUD/Controls"]
 position = Vector2( -32, 0 )
 frames = SubResource( 13 )
+frame = 4
 playing = true
 centered = false
 
@@ -239,4 +241,5 @@ margin_right = 30.0
 margin_bottom = 29.0
 
 [connection signal="pressed" from="GiddyUp" to="." method="_on_GiddyUp_pressed"]
+[connection signal="timeout" from="Timer" to="." method="final"]
 [connection signal="pressed" from="HUD/Controls" to="." method="_on_Controls_pressed"]
