@@ -15,7 +15,7 @@ var comb = load("res://Combo.tscn")
 var dialogbox = load("res://ui/Dialog Box/Dialog_Player.tscn").instance()
 var submitbox = load("res://ui/Submit_Player.tscn").instance()
 
-var player : String = "Player"
+var player : String = Autoload.player
 var rot = 0
 var vel = 0
 var yVel = 0

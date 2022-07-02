@@ -221,26 +221,26 @@ $GODOT_HEAD_INCLUDE
 			if (!Engine.isWebGLAvailable()) {
 				displayFailureNotice('WebGL not available');
 			} else {
-				setStatusMode('indeterminate');
-				engine.startGame({
-					'onProgress': function (current, total) {
-						if (total > 0) {
-							statusProgressInner.style.width = current/total * 100 + '%';
-							setStatusMode('progress');
-							if (current === total) {
-								// wait for progress bar animation
-								setTimeout(() => {
-									setStatusMode('indeterminate');
-								}, 500);
-							}
-						} else {
-							setStatusMode('indeterminate');
-						}
-					},
-				}).then(() => {
-					setStatusMode('hidden');
-					initializing = false;
-				}, displayFailureNotice);
+				setStatusMode('progress');
+				<!-- engine.startGame({ -->
+					<!-- 'onProgress': function (current, total) { -->
+						<!-- if (total > 0) { -->
+							<!-- statusProgressInner.style.width = current/total * 100 + '%'; -->
+							<!-- setStatusMode('progress'); -->
+							<!-- if (current === total) { -->
+								<!-- // wait for progress bar animation -->
+								<!-- setTimeout(() => { -->
+									<!-- setStatusMode('indeterminate'); -->
+								<!-- }, 500); -->
+							<!-- } -->
+						<!-- } else { -->
+							<!-- setStatusMode('indeterminate'); -->
+						<!-- } -->
+					<!-- }, -->
+				<!-- }).then(() => { -->
+					<!-- setStatusMode('hidden'); -->
+					<!-- initializing = false; -->
+				<!-- }, displayFailureNotice); -->
 			}
 		})();
 	//]]></script>

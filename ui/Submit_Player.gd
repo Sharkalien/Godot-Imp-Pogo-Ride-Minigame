@@ -4,9 +4,11 @@ onready var animPlayer = get_node("CenterContainer/Body_NinePatchRect/AnimationP
 onready var rootNode = get_node(".")
 onready var mainGame = get_tree().get_root().get_node("Game")
 onready var scoreLabel = get_node("CenterContainer/Body_NinePatchRect/MarginContainer/RichTextLabel")
+onready var playerName = get_node("PlayerName")
 
 func _ready():
 	scoreLabel.text = "Your current high score is: " + str(mainGame.highScore) + ". Would you like to submit?"
+	playerName.text = Autoload.player
 #	print(get_tree().get_root())
 #	print(get_tree().get_root().get_node("Game").get("score"))
 

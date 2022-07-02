@@ -5,8 +5,6 @@ var combos
 var volumeClicks : int
 var player : String = "Player"
 
-#func _process(_delta):
-#	print(str(combos) + " autoload")
 
 func _ready():
 	var f = File.new()
@@ -19,4 +17,19 @@ func _ready():
 	"game_id": "ImpPogoRide",
 	"game_version": "1.0",
 	"log_level": 1
-})
+	})
+	
+	JavaScript.eval("""
+	let playerName;
+	window.addEventListener("message", (event) => {
+		if (event.origin !== "https://mspfa.com") return;
+		
+		playerName = event.data
+		console.log('Player name is: ' + playerName)
+		}, false);
+	""")
+	if JavaScript.eval("typeof playerName !== 'undefined'"):
+		Autoload.player = JavaScript.eval("playerName")
+
+#func _process(_delta):
+#	print(str(combos) + " autoload")
