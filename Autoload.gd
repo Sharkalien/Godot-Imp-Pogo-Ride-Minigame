@@ -27,9 +27,9 @@ func _ready():
 		playerName = event.data
 		console.log('Player name is: ' + playerName)
 		}, false);
-	""")
-	if JavaScript.eval("typeof playerName !== 'undefined'"):
-		Autoload.player = JavaScript.eval("playerName")
+	""", true)
+	if JavaScript.eval("typeof playerName !== 'undefined'", true):
+		Autoload.player = JavaScript.eval("playerName", true)
 
 #func _process(_delta):
 #	print(str(combos) + " autoload")

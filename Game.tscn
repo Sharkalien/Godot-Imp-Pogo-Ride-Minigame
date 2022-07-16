@@ -116,6 +116,7 @@ position = Vector2( 153, 311 )
 
 [node name="ImpCake" parent="." instance=ExtResource( 4 )]
 position = Vector2( 241, 229 )
+frame = 0
 
 [node name="BackyardSwing" type="Sprite" parent="."]
 position = Vector2( 530, 699 )
