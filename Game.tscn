@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://images/background.png" type="Texture" id=1]
 [ext_resource path="res://ImpPiano.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://images/controls.png" type="Texture" id=15]
 [ext_resource path="res://ui/Volume Button/VolumeButton.tscn" type="PackedScene" id=16]
 [ext_resource path="res://images/arrow_spritesheet.png" type="Texture" id=17]
+[ext_resource path="res://Leaderboard.tscn" type="PackedScene" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -230,7 +231,6 @@ texture_pressed = ExtResource( 15 )
 [node name="ClickHere" type="AnimatedSprite" parent="HUD/Controls"]
 position = Vector2( -32, 0 )
 frames = SubResource( 13 )
-frame = 4
 playing = true
 centered = false
 
@@ -239,6 +239,9 @@ margin_left = 5.0
 margin_top = 4.0
 margin_right = 30.0
 margin_bottom = 29.0
+
+[node name="Leaderboard" parent="HUD" instance=ExtResource( 18 )]
+visible = false
 
 [connection signal="pressed" from="GiddyUp" to="." method="_on_GiddyUp_pressed"]
 [connection signal="timeout" from="Timer" to="." method="final"]
