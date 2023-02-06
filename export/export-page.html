@@ -13,9 +13,6 @@
 			padding: 0;
 			text-align: center;
 			background-color: white;
-			background-image: url("preloader.gif");
-			background-repeat: no-repeat;
-			background-position: center;
 		}
 
 		#canvas {
@@ -50,17 +47,27 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			flex-direction: column;
 			/* don't consume click events - make children visible explicitly */
 			visibility: hidden;
+		}
+		
+		#status-preloader {
+			width: 100%;
+			height: 90%;
+			background-image: url("preloader.gif");
+			background-repeat: no-repeat;
+			background-position: center;
+			visibility: visible;
 		}
 
 		#status-progress {
 			width: 366px;
 			height: 7px;
-			background-color: #38363A;
-			border: 1px solid #444246;
+			background-color: #FFFFFF;
+			border: 1px solid #000000;
 			padding: 1px;
-			box-shadow: 0 0 2px 1px #1B1C22;
+			/* box-shadow: 0 0 2px 1px #1B1C22; */
 			border-radius: 2px;
 			visibility: visible;
 		}
@@ -76,10 +83,10 @@
 			width: 0;
 			box-sizing: border-box;
 			transition: width 0.5s linear;
-			background-color: #202020;
-			border: 1px solid #222223;
-			box-shadow: 0 0 1px 1px #27282E;
-			border-radius: 3px;
+			background-color: #4ce24e;
+			border: 1px solid #000000;
+			/* box-shadow: 0 0 1px 1px #27282E; */
+			/* border-radius: 3px; */
 		}
 
 		#status-indeterminate {
@@ -123,6 +130,7 @@ $GODOT_HEAD_INCLUDE
 		Please try updating or use a different browser.
 	</canvas>
 	<div id='status'>
+		<div id='status-preloader' style='display: none;' oncontextmenu='event.preventDefault();'></div>
 		<div id='status-progress' style='display: none;' oncontextmenu='event.preventDefault();'><div id ='status-progress-inner'></div></div>
 		<div id='status-indeterminate' style='display: none;' oncontextmenu='event.preventDefault();'>
 			<div></div>
@@ -145,6 +153,7 @@ $GODOT_HEAD_INCLUDE
 
 		(function() {
 			const INDETERMINATE_STATUS_STEP_MS = 100;
+			var statusPreloader = document.getElementById('status-preloader');
 			var statusProgress = document.getElementById('status-progress');
 			var statusProgressInner = document.getElementById('status-progress-inner');
 			var statusIndeterminate = document.getElementById('status-indeterminate');
@@ -164,7 +173,7 @@ $GODOT_HEAD_INCLUDE
 
 				if (statusMode === mode || !initializing)
 					return;
-				[statusProgress, statusIndeterminate, statusNotice].forEach(elem => {
+				[statusPreloader, statusProgress, statusIndeterminate, statusNotice].forEach(elem => {
 					elem.style.display = 'none';
 				});
 				animationCallbacks = animationCallbacks.filter(function(value) {
@@ -172,9 +181,11 @@ $GODOT_HEAD_INCLUDE
 				});
 				switch (mode) {
 					case 'progress':
+						statusPreloader.style.display = 'block';
 						statusProgress.style.display = 'block';
 						break;
 					case 'indeterminate':
+						statusPreloader.style.display = 'block';
 						statusIndeterminate.style.display = 'block';
 						animationCallbacks.push(animateStatusIndeterminate);
 						break;
@@ -222,25 +233,25 @@ $GODOT_HEAD_INCLUDE
 				displayFailureNotice('WebGL not available');
 			} else {
 				setStatusMode('progress');
-				<!-- engine.startGame({ -->
-					<!-- 'onProgress': function (current, total) { -->
-						<!-- if (total > 0) { -->
-							<!-- statusProgressInner.style.width = current/total * 100 + '%'; -->
-							<!-- setStatusMode('progress'); -->
-							<!-- if (current === total) { -->
-								<!-- // wait for progress bar animation -->
-								<!-- setTimeout(() => { -->
-									<!-- setStatusMode('indeterminate'); -->
-								<!-- }, 500); -->
-							<!-- } -->
-						<!-- } else { -->
-							<!-- setStatusMode('indeterminate'); -->
-						<!-- } -->
-					<!-- }, -->
-				<!-- }).then(() => { -->
-					<!-- setStatusMode('hidden'); -->
-					<!-- initializing = false; -->
-				<!-- }, displayFailureNotice); -->
+				engine.startGame({
+					'onProgress': function (current, total) {
+						if (total > 0) {
+							statusProgressInner.style.width = current/total * 100 + '%';
+							setStatusMode('progress');
+							if (current === total) {
+								// wait for progress bar animation
+								setTimeout(() => {
+									setStatusMode('indeterminate');
+								}, 500);
+							}
+						} else {
+							setStatusMode('indeterminate');
+						}
+					},
+				}).then(() => {
+					setStatusMode('hidden');
+					initializing = false;
+				}, displayFailureNotice);
 			}
 		})();
 	//]]></script>
