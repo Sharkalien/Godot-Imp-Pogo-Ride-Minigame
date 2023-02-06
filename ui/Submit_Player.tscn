@@ -304,4 +304,5 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[connection signal="pressed" from="Submit" to="." method="_on_Submit_pressed"]
 [connection signal="pressed" from="Skip" to="." method="_on_Skip_pressed"]

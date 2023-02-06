@@ -1,0 +1,289 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://fonts/Verdana, Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/Courier New, Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Leaderboard.gd" type="Script" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.145098, 0.141176, 0.141176, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="DynamicFont" id=16]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="DynamicFont" id=17]
+size = 14
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 10
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=22]
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0.823529, 0.823529, 0.823529, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 6.0
+expand_margin_right = 6.0
+
+[sub_resource type="StyleBoxEmpty" id=23]
+
+[sub_resource type="StyleBoxEmpty" id=26]
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="ButtonGroup" id=21]
+
+[sub_resource type="DynamicFont" id=24]
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=25]
+bg_color = Color( 0.145098, 0.141176, 0.141176, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Leaderboard" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.980392, 0.596078, 0.0117647, 1 )
+
+[node name="MainWindow" type="Panel" parent="BG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -203.0
+margin_top = -165.0
+margin_right = 203.0
+margin_bottom = 165.0
+custom_styles/panel = SubResource( 14 )
+
+[node name="Label" type="Label" parent="BG/MainWindow"]
+margin_left = 17.0
+margin_top = 2.0
+margin_right = 148.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 16 )
+text = "Tabla de resultados"
+
+[node name="MainBG" type="Panel" parent="BG/MainWindow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 25.0
+margin_right = -2.0
+margin_bottom = -2.0
+custom_styles/panel = SubResource( 15 )
+
+[node name="MarginContainer" type="MarginContainer" parent="BG/MainWindow/MainBG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="MainVBox" type="VBoxContainer" parent="BG/MainWindow/MainBG/MarginContainer"]
+margin_right = 382.0
+margin_bottom = 288.0
+custom_constants/separation = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BG/MainWindow/MainBG/MarginContainer/MainVBox"]
+margin_right = 382.0
+margin_bottom = 18.0
+
+[node name="Label" type="Label" parent="BG/MainWindow/MainBG/MarginContainer/MainVBox/HBoxContainer"]
+margin_right = 246.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.145098, 0.141176, 0.141176, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "POGOPOINTS LEADERS"
+
+[node name="ButtonBox" type="HBoxContainer" parent="BG/MainWindow/MainBG/MarginContainer/MainVBox/HBoxContainer"]
+margin_left = 250.0
+margin_right = 382.0
+margin_bottom = 18.0
+custom_constants/separation = 10
+
+[node name="Day" type="Button" parent="BG/MainWindow/MainBG/MarginContainer/MainVBox/HBoxContainer/ButtonBox"]
+margin_right = 21.0
+margin_bottom = 18.0
+custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
+custom_colors/font_color_pressed = Color( 0.25098, 0.423529, 0.643137, 1 )
+custom_fonts/font = SubResource( 18 )
+custom_styles/hover = SubResource( 22 )
+custom_styles/pressed = SubResource( 20 )
+custom_styles/focus = SubResource( 23 )
+custom_styles/disabled = SubResource( 26 )
+custom_styles/normal = SubResource( 19 )
+toggle_mode = true
+action_mode = 0
+group = SubResource( 21 )
+text = "day"
+
+[node name="Week" type="Button" parent="BG/MainWindow/MainBG/MarginContainer/MainVBox/HBoxContainer/ButtonBox"]
+margin_left = 31.0
+margin_right = 62.0
+margin_bottom = 18.0
+custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
+custom_colors/font_color_pressed = Color( 0.25098, 0.423529, 0.643137, 1 )
+custom_fonts/font = SubResource( 18 )
+custom_styles/hover = SubResource( 22 )
+custom_styles/pressed = SubResource( 20 )
+custom_styles/focus = SubResource( 23 )
+custom_styles/disabled = SubResource( 26 )
+custom_styles/normal = SubResource( 19 )
+toggle_mode = true
+action_mode = 0
+group = SubResource( 21 )
+text = "week"
+
+[node name="Month" type="Button" parent="BG/MainWindow/MainBG/MarginContainer/MainVBox/HBoxContainer/ButtonBox"]
+margin_left = 72.0
+margin_right = 109.0
+margin_bottom = 18.0
+custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
+custom_colors/font_color_pressed = Color( 0.25098, 0.423529, 0.643137, 1 )
+custom_fonts/font = SubResource( 18 )
+custom_styles/hover = SubResource( 22 )
+custom_styles/pressed = SubResource( 20 )
+custom_styles/focus = SubResource( 23 )
+custom_styles/disabled = SubResource( 26 )
+custom_styles/normal = SubResource( 19 )
+toggle_mode = true
+action_mode = 0
+group = SubResource( 21 )
+text = "month"
+
+[node name="All" type="Button" parent="BG/MainWindow/MainBG/MarginContainer/MainVBox/HBoxContainer/ButtonBox"]
+margin_left = 119.0
+margin_right = 132.0
+margin_bottom = 18.0
+custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
+custom_colors/font_color_pressed = Color( 0.25098, 0.423529, 0.643137, 1 )
+custom_fonts/font = SubResource( 18 )
+custom_styles/hover = SubResource( 22 )
+custom_styles/pressed = SubResource( 20 )
+custom_styles/focus = SubResource( 23 )
+custom_styles/disabled = SubResource( 26 )
+custom_styles/normal = SubResource( 19 )
+toggle_mode = true
+pressed = true
+action_mode = 0
+group = SubResource( 21 )
+text = "all"
+
+[node name="PlaceListScroll" type="ScrollContainer" parent="BG/MainWindow/MainBG/MarginContainer/MainVBox"]
+margin_top = 26.0
+margin_right = 382.0
+margin_bottom = 288.0
+size_flags_vertical = 3
+
+[node name="PlaceList" type="VBoxContainer" parent="BG/MainWindow/MainBG/MarginContainer/MainVBox/PlaceListScroll"]
+margin_right = 382.0
+margin_bottom = 262.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LoadingWindow" type="Panel" parent="BG"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -203.0
+margin_top = -93.0
+margin_right = 203.0
+margin_bottom = 75.0
+custom_styles/panel = SubResource( 14 )
+
+[node name="Label" type="Label" parent="BG/LoadingWindow"]
+margin_left = 17.0
+margin_top = 2.0
+margin_right = 148.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 16 )
+text = "Pogo Media"
+
+[node name="MainBG" type="Panel" parent="BG/LoadingWindow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 25.0
+margin_right = -2.0
+margin_bottom = -2.0
+custom_styles/panel = SubResource( 15 )
+
+[node name="MarginContainer" type="MarginContainer" parent="BG/LoadingWindow/MainBG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BG/LoadingWindow/MainBG/MarginContainer"]
+margin_right = 382.0
+margin_bottom = 121.0
+custom_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="BG/LoadingWindow/MainBG/MarginContainer/HBoxContainer"]
+margin_right = 64.0
+margin_bottom = 121.0
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="BG/LoadingWindow/MainBG/MarginContainer/HBoxContainer"]
+margin_left = 84.0
+margin_top = 41.0
+margin_right = 382.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.145098, 0.141176, 0.141176, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Please wait while we submit you score"
+autowrap = true
+
+[node name="HideButton" type="Button" parent="BG"]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -85.0
+margin_top = 12.0
+margin_right = -13.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 24 )
+custom_styles/hover = SubResource( 25 )
+custom_styles/pressed = SubResource( 25 )
+custom_styles/focus = SubResource( 25 )
+custom_styles/normal = SubResource( 25 )
+action_mode = 0
+text = "volver"
+
+[connection signal="pressed" from="BG/MainWindow/MainBG/MarginContainer/MainVBox/HBoxContainer/ButtonBox/Day" to="." method="_on_Day_pressed"]
+[connection signal="pressed" from="BG/MainWindow/MainBG/MarginContainer/MainVBox/HBoxContainer/ButtonBox/Week" to="." method="_on_Week_pressed"]
+[connection signal="pressed" from="BG/MainWindow/MainBG/MarginContainer/MainVBox/HBoxContainer/ButtonBox/Month" to="." method="_on_Month_pressed"]
+[connection signal="pressed" from="BG/MainWindow/MainBG/MarginContainer/MainVBox/HBoxContainer/ButtonBox/All" to="." method="_on_All_pressed"]
+[connection signal="pressed" from="BG/HideButton" to="." method="_on_HideButton_pressed"]

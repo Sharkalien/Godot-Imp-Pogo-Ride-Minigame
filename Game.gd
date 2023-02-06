@@ -23,7 +23,8 @@ var pogoScale = 0
 var side = 1
 var combos = 0
 var delay = 0
-var score = 0
+# Explicitly set the score variable to an integer
+var score : int = 0
 var dispScore = 0
 var started = false
 var time
@@ -96,6 +97,7 @@ func _on_GiddyUp_pressed():
 	$Timer.start()
 
 func final():
+	# Update High Score variable
 	if highScore < score:
 		highScore = score
 	var hud = get_node("HUD")
