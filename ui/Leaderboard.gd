@@ -5,7 +5,7 @@ onready var loading_window := $BG/LoadingWindow
 onready var main_window := $BG/MainWindow
 onready var hide_button := $BG/HideButton
 
-var place_spot_scene := load("res://LeaderboardPlace.tscn")
+var place_spot_scene := load("res://ui/LeaderboardPlace.tscn")
 
 
 func _on_loaded_scores():

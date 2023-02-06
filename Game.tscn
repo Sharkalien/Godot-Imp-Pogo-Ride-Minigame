@@ -17,7 +17,7 @@
 [ext_resource path="res://images/controls.png" type="Texture" id=15]
 [ext_resource path="res://ui/Volume Button/VolumeButton.tscn" type="PackedScene" id=16]
 [ext_resource path="res://images/arrow_spritesheet.png" type="Texture" id=17]
-[ext_resource path="res://Leaderboard.tscn" type="PackedScene" id=18]
+[ext_resource path="res://ui/Leaderboard.tscn" type="PackedScene" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -117,7 +117,7 @@ position = Vector2( 153, 311 )
 
 [node name="ImpCake" parent="." instance=ExtResource( 4 )]
 position = Vector2( 241, 229 )
-frame = 4
+frame = 3
 
 [node name="BackyardSwing" type="Sprite" parent="."]
 position = Vector2( 530, 699 )
@@ -231,7 +231,6 @@ texture_pressed = ExtResource( 15 )
 [node name="ClickHere" type="AnimatedSprite" parent="HUD/Controls"]
 position = Vector2( -32, 0 )
 frames = SubResource( 13 )
-frame = 5
 playing = true
 centered = false
 

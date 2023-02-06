@@ -2,7 +2,7 @@
 
 [ext_resource path="res://fonts/Verdana, Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://fonts/Courier New, Bold.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Leaderboard.gd" type="Script" id=3]
+[ext_resource path="res://ui/Leaderboard.gd" type="Script" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
 
 [sub_resource type="StyleBoxFlat" id=14]
@@ -85,7 +85,7 @@ margin_top = 2.0
 margin_right = 148.0
 margin_bottom = 23.0
 custom_fonts/font = SubResource( 16 )
-text = "Tabla de resultados"
+text = "Leaderboard"
 
 [node name="MainBG" type="Panel" parent="BG/MainWindow"]
 anchor_right = 1.0
