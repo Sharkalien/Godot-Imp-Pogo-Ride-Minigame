@@ -7,8 +7,10 @@ var player : String = "Player"
 
 
 func _ready():
-	# Getting the API Key from an environment variable instead of a text file
-	var apiKey = OS.get_environment("SILENT_WOLF_476")
+	var f = File.new()
+	f.open('res://apiKey.env',File.READ)
+	var apiKey = f.get_line()
+	f.close()
 
 	SilentWolf.configure({
 	"api_key": apiKey,
@@ -29,6 +31,3 @@ func _ready():
 #	""", true)
 #	if JavaScript.eval("typeof playerName !== 'undefined'", true):
 #		Autoload.player = JavaScript.eval("playerName", true)
-
-#func _process(_delta):
-#	print(str(combos) + " autoload")

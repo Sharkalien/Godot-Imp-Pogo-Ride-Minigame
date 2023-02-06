@@ -263,7 +263,7 @@ margin_bottom = 80.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.145098, 0.141176, 0.141176, 1 )
 custom_fonts/font = SubResource( 17 )
-text = "Please wait while we submit you score"
+text = "Please wait while we submit your score"
 autowrap = true
 
 [node name="HideButton" type="Button" parent="BG"]
@@ -274,13 +274,14 @@ margin_left = -85.0
 margin_top = 12.0
 margin_right = -13.0
 margin_bottom = 37.0
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 24 )
 custom_styles/hover = SubResource( 25 )
 custom_styles/pressed = SubResource( 25 )
 custom_styles/focus = SubResource( 25 )
 custom_styles/normal = SubResource( 25 )
 action_mode = 0
-text = "volver"
+text = "Close"
 
 [connection signal="pressed" from="BG/MainWindow/MainBG/MarginContainer/MainVBox/HBoxContainer/ButtonBox/Day" to="." method="_on_Day_pressed"]
 [connection signal="pressed" from="BG/MainWindow/MainBG/MarginContainer/MainVBox/HBoxContainer/ButtonBox/Week" to="." method="_on_Week_pressed"]
