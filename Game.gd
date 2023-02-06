@@ -71,7 +71,7 @@ func _process(_delta):
 	if rot * side > 20:
 		combos += 1
 		side *= -1
-		print("combos: ", combos)
+#		print("combos: ", combos)
 		#more code goes here
 		var tempMc = comb.instance()
 		add_child(tempMc)
@@ -100,11 +100,15 @@ func final():
 	# Update High Score variable
 	if highScore < score:
 		highScore = score
+	if score >= 2100000:
+		Autoload.player = "I'm a Hacker Douche! I'm a huge loser!"
 	var hud = get_node("HUD")
 	if not hud.has_node("SubmitBox"):
 		hud.add_child(submitbox)
 	elif hud.has_node("SubmitBox") and not submitbox.visible:
 		submitbox.visible = true
+	submitbox.scoreLabel.text = "Your current high score is: " + str(highScore) + ". Would you like to submit?"
+	submitbox.playerName.text = Autoload.player
 	submitbox.get_node("CenterContainer/Body_NinePatchRect/AnimationPlayer").play("Open")
 
 

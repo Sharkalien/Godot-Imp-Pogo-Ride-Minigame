@@ -16,7 +16,7 @@ func _ready():
 	"api_key": apiKey,
 	"game_id": "ImpPogoRide",
 	"game_version": "1.0",
-	"log_level": 1
+	"log_level": 0
 	})
 	
 	# Get username from MSPFA if the player is logged in (currently doesn't work :/)

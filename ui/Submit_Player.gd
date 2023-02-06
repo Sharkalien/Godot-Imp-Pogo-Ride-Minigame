@@ -8,18 +8,22 @@ onready var playerName = get_node("PlayerName")
 var leaderboard = null
 
 func _ready():
-	scoreLabel.text = "Your current high score is: " + str(mainGame.highScore) + ". Would you like to submit?"
 	playerName.text = Autoload.player
 	leaderboard = mainGame.get_node("HUD").get_node("Leaderboard")
 	leaderboard.connect("hide", self, "restart_game")
 #	print(get_tree().get_root())
 #	print(get_tree().get_root().get_node("Game").get("score"))
 
+func _process(_delta: float) -> void:
+	if Autoload.player == "I'm a Hacker Douche! I'm a huge loser!":
+		playerName.editable = false
+
 
 func _on_Skip_pressed():
 	animPlayer.play_backwards("Open")
 	yield(get_tree().create_timer(0.17), "timeout")
 	rootNode.visible = false
+	Autoload.player = playerName.text
 	restart_game()
 
 
@@ -27,6 +31,7 @@ func _on_Submit_pressed():
 	animPlayer.play_backwards("Open")
 	yield(get_tree().create_timer(0.17), "timeout")
 	rootNode.visible = false
+	Autoload.player = playerName.text
 	leaderboard.show()
 	
 	# Leaderboard stuff here
