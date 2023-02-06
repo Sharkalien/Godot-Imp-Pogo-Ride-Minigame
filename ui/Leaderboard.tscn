@@ -69,6 +69,7 @@ anchor_bottom = 1.0
 color = Color( 0.980392, 0.596078, 0.0117647, 1 )
 
 [node name="MainWindow" type="Panel" parent="BG"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
