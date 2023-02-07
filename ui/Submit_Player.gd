@@ -50,5 +50,6 @@ func _on_Submit_pressed():
 
 func restart_game():
 	mainGame.get_node("GiddyUp").visible = true
+	mainGame.touchControls.visible = true
 	if mainGame.score > 0:
 		mainGame.score = 0

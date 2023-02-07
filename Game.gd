@@ -10,6 +10,8 @@ onready var music := get_node("Harlequin ROCK")
 onready var timeLeft := $TimeLeft
 onready var scorer := $Score
 onready var sound : AudioStreamPlayer = $"Harlequin ROCK"
+onready var hud = get_node("HUD")
+onready var touchControls = get_node("HUD/TouchControls")
 
 var comb = load("res://Combo.tscn")
 var dialogbox = load("res://ui/Dialog Box/Dialog_Player.tscn").instance()
@@ -97,12 +99,14 @@ func _on_GiddyUp_pressed():
 	$Timer.start()
 
 func final():
+	touchControls.visible = false
 	# Update High Score variable
 	if highScore < score:
 		highScore = score
 	if score >= 2100000:
 		Autoload.player = "I'm a Hacker Douche! I'm a huge loser!"
-	var hud = get_node("HUD")
+	if touchControls:
+		pass
 	if not hud.has_node("SubmitBox"):
 		hud.add_child(submitbox)
 	elif hud.has_node("SubmitBox") and not submitbox.visible:
@@ -113,7 +117,6 @@ func final():
 
 
 func _on_Controls_pressed():
-	var hud = get_node("HUD")
 	if not hud.has_node("DialogBox"):
 		hud.add_child(dialogbox)
 		$HUD/Controls/ClickHere.queue_free()

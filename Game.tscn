@@ -115,7 +115,7 @@ position = Vector2( 153, 311 )
 
 [node name="ImpCake" parent="." instance=ExtResource( 4 )]
 position = Vector2( 241, 229 )
-frame = 1
+frame = 4
 
 [node name="BackyardSwing" type="Sprite" parent="."]
 position = Vector2( 530, 699 )
@@ -160,7 +160,9 @@ one_shot = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="Up" type="TouchScreenButton" parent="HUD"]
+[node name="TouchControls" type="CanvasLayer" parent="HUD"]
+
+[node name="Up" type="TouchScreenButton" parent="HUD/TouchControls"]
 position = Vector2( 490, 265 )
 normal = ExtResource( 14 )
 pressed = ExtResource( 14 )
@@ -168,7 +170,7 @@ shape = SubResource( 5 )
 action = "ui_up"
 visibility_mode = 1
 
-[node name="Down" type="TouchScreenButton" parent="HUD"]
+[node name="Down" type="TouchScreenButton" parent="HUD/TouchControls"]
 position = Vector2( 573, 436 )
 rotation = 3.14159
 normal = ExtResource( 14 )
@@ -177,7 +179,7 @@ shape = SubResource( 5 )
 action = "ui_down"
 visibility_mode = 1
 
-[node name="Left" type="TouchScreenButton" parent="HUD"]
+[node name="Left" type="TouchScreenButton" parent="HUD/TouchControls"]
 position = Vector2( 415, 392 )
 rotation = -1.5708
 normal = ExtResource( 14 )
@@ -186,7 +188,7 @@ shape = SubResource( 5 )
 action = "ui_left"
 visibility_mode = 1
 
-[node name="Right" type="TouchScreenButton" parent="HUD"]
+[node name="Right" type="TouchScreenButton" parent="HUD/TouchControls"]
 position = Vector2( 648, 309 )
 rotation = 1.5708
 normal = ExtResource( 14 )
@@ -210,7 +212,7 @@ texture_pressed = ExtResource( 15 )
 [node name="ClickHere" type="AnimatedSprite" parent="HUD/Controls"]
 position = Vector2( -32, 0 )
 frames = SubResource( 13 )
-frame = 6
+frame = 1
 playing = true
 centered = false
 
