@@ -125,7 +125,7 @@ func toggle_buttons(activate):
 
 func _on_Day_pressed():
 	toggle_buttons(false)
-	yield(SilentWolf.Scores.get_high_scores(20, "day"), "sw_scores_received")
+	yield(SilentWolf.Scores.get_high_scores(30, "day"), "sw_scores_received")
 	var day: Array = SilentWolf.Scores.scores
 	populate_list(day)
 	toggle_buttons(true)
@@ -149,7 +149,7 @@ func _on_Month_pressed():
 
 func _on_All_pressed():
 	toggle_buttons(false)
-	yield(SilentWolf.Scores.get_high_scores(20), "sw_scores_received")
+	yield(SilentWolf.Scores.get_high_scores(50), "sw_scores_received")
 	var all: Array = SilentWolf.Scores.scores
 	populate_list(all)
 	toggle_buttons(true)
