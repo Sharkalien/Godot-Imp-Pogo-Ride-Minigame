@@ -6,7 +6,7 @@ Play the game [here](https://linkh.at/pogo)!
 # Exporting to HTML5
 Under the export options, load the custom HTML shell from the "[export](https://github.com/Sharkalien/Godot-Imp-Pogo-Ride-Minigame/tree/main/export)" folder. The preloader.gif won't be included in the export, so be sure to copy the file to the folder you export to.
 
-![image](https://user-images.githubusercontent.com/22488483/217600896-379391ad-27ae-42eb-aea1-5abee5617ee9.png)
+![image](https://user-images.githubusercontent.com/22488483/217599714-78ea4c1f-8462-44bf-a191-9e14d130785f.png)
 
 Under the Resources tab, export "*.env" files for the SilentWolf API key if you wish to set up your own leaderboard (more info on that [here](https://escada-games.itch.io/jump3match/devlog/242610/making-a-simple-online-leaderboard-in-godot-with-silentwolf)).
 
