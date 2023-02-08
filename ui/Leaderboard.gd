@@ -3,15 +3,28 @@ extends Control
 onready var list := $BG/MainWindow/MainBG/MarginContainer/MainVBox/PlaceListScroll/PlaceList
 onready var loading_window := $BG/LoadingWindow
 onready var main_window := $BG/MainWindow
-onready var hide_button := $BG/HideButton
+onready var refresh_button := $BG/RefreshButton
+onready var timer := $Timer
 
 var place_spot_scene := load("res://ui/LeaderboardPlace.tscn")
+
+
+func _ready() -> void:
+	_on_All_pressed()
+	_on_loaded_scores()
+
+
+func _process(_delta: float) -> void:
+	if int(timer.time_left) > 0:
+		refresh_button.text = str(int(timer.time_left))
+	else:
+		refresh_button.text = "Refresh"
 
 
 func _on_loaded_scores():
 	loading_window.hide()
 	main_window.show()
-	hide_button.show()
+	refresh_button.show()
 
 
 func clear_list():
@@ -155,8 +168,11 @@ func _on_All_pressed():
 	toggle_buttons(true)
 
 
-func _on_HideButton_pressed():
-	hide()
-	loading_window.show()
-	main_window.hide()
-	hide_button.hide()
+func _on_RefreshButton_pressed():
+	timer.start()
+	refresh_button.disabled = true
+	_on_All_pressed()
+
+
+func _on_Timer_timeout() -> void:
+	refresh_button.disabled = false

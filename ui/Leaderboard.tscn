@@ -261,22 +261,21 @@ stretch_mode = 4
 
 [node name="Label" type="Label" parent="BG/LoadingWindow/MainBG/MarginContainer/HBoxContainer"]
 margin_left = 84.0
-margin_top = 41.0
+margin_top = 51.0
 margin_right = 382.0
-margin_bottom = 80.0
+margin_bottom = 69.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.145098, 0.141176, 0.141176, 1 )
 custom_fonts/font = SubResource( 17 )
-text = "Please wait while we submit your score"
+text = "Please wait while we load the scores"
 autowrap = true
 
-[node name="HideButton" type="Button" parent="BG"]
-visible = false
+[node name="RefreshButton" type="Button" parent="BG"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -85.0
+margin_left = -102.0
 margin_top = 12.0
-margin_right = -13.0
+margin_right = -12.0
 margin_bottom = 37.0
 mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 24 )
@@ -285,10 +284,15 @@ custom_styles/pressed = SubResource( 25 )
 custom_styles/focus = SubResource( 25 )
 custom_styles/normal = SubResource( 25 )
 action_mode = 0
-text = "Close"
+text = "Refresh"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 45.0
+one_shot = true
 
 [connection signal="pressed" from="BG/MainWindow/MainBG/MarginContainer/MainVBox/HBoxContainer/ButtonBox/Day" to="." method="_on_Day_pressed"]
 [connection signal="pressed" from="BG/MainWindow/MainBG/MarginContainer/MainVBox/HBoxContainer/ButtonBox/Week" to="." method="_on_Week_pressed"]
 [connection signal="pressed" from="BG/MainWindow/MainBG/MarginContainer/MainVBox/HBoxContainer/ButtonBox/Month" to="." method="_on_Month_pressed"]
 [connection signal="pressed" from="BG/MainWindow/MainBG/MarginContainer/MainVBox/HBoxContainer/ButtonBox/All" to="." method="_on_All_pressed"]
-[connection signal="pressed" from="BG/HideButton" to="." method="_on_HideButton_pressed"]
+[connection signal="pressed" from="BG/RefreshButton" to="." method="_on_RefreshButton_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
