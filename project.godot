@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Imp Pogo Ride"
+config/name="POGO RIDE LEADER BOARD"
 run/main_scene="res://ui/Leaderboard.tscn"
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
