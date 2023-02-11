@@ -23,7 +23,9 @@ func _on_Skip_pressed():
 	animPlayer.play_backwards("Open")
 	yield(get_tree().create_timer(0.17), "timeout")
 	rootNode.visible = false
-	Autoload.player = playerName.text
+	Autoload.player = playerName.text.strip_edges()
+	if Autoload.player.empty():
+		Autoload.player = "What Player?"
 	restart_game()
 
 
@@ -31,18 +33,22 @@ func _on_Submit_pressed():
 	animPlayer.play_backwards("Open")
 	yield(get_tree().create_timer(0.17), "timeout")
 	rootNode.visible = false
-	Autoload.player = playerName.text
+	Autoload.player = playerName.text.strip_edges()
+	if Autoload.player.empty():
+		Autoload.player = "What Player?"
 	leaderboard.show()
 	
 	# Leaderboard stuff here
-	SilentWolf.Scores.persist_score(playerName.text, mainGame.score)
-	yield(SilentWolf.Scores, "sw_score_posted")
-	SilentWolf.Scores.persist_score(playerName.text, mainGame.score, "day")
-	yield(SilentWolf.Scores, "sw_score_posted")
-	SilentWolf.Scores.persist_score(playerName.text, mainGame.score, "week")
-	yield(SilentWolf.Scores, "sw_score_posted")
-	SilentWolf.Scores.persist_score(playerName.text, mainGame.score, "month")
-	yield(SilentWolf.Scores, "sw_score_posted")
+	print(mainGame.newHighScore)
+	if mainGame.newHighScore:
+		SilentWolf.Scores.persist_score(Autoload.player, mainGame.highScore)
+		yield(SilentWolf.Scores, "sw_score_posted")
+		SilentWolf.Scores.persist_score(Autoload.player, mainGame.highScore, "day")
+		yield(SilentWolf.Scores, "sw_score_posted")
+		SilentWolf.Scores.persist_score(Autoload.player, mainGame.highScore, "week")
+		yield(SilentWolf.Scores, "sw_score_posted")
+		SilentWolf.Scores.persist_score(Autoload.player, mainGame.highScore, "month")
+		yield(SilentWolf.Scores, "sw_score_posted")
 	
 	leaderboard._on_All_pressed()
 	leaderboard._on_loaded_scores()

@@ -31,6 +31,7 @@ var dispScore = 0
 var started = false
 var time
 var highScore : int = 0
+var newHighScore : bool = false
 
 
 func _process(_delta):
@@ -103,6 +104,9 @@ func final():
 	# Update High Score variable
 	if highScore < score:
 		highScore = score
+		newHighScore = true
+	else:
+		newHighScore = false
 	if score >= 2100000:
 		Autoload.player = "I'm a Hacker Douche! I'm a huge loser!"
 	if touchControls:
